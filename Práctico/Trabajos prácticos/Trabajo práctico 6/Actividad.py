@@ -1,7 +1,7 @@
 class Actividad:
-    def __init__(self, nombre, horarios):
+    def __init__(self, nombre, cupos_por_horario):
         self.nombre = nombre
-        self.horarios = horarios
+        self.horarios = cupos_por_horario
         self.requiere_vestimenta = nombre in ["Palestra", "Escalada"]
 
     def tiene_cupos(self, horario):

@@ -1,3 +1,5 @@
+from actividad import Actividad
+
 def inscribirse(actividad, horario, participantes):
     # Verificar que todos los participantes acepten los términos y condiciones
     for participante in participantes:
@@ -16,7 +18,6 @@ def inscribirse(actividad, horario, participantes):
     return {"ok": True, "mensaje": "Inscripción exitosa"}
 
 def acepta_terminos(participante):
-    if participante.get("acepta_terminos", False):
-        return True
-    return False
+    return participante.get("acepta_terminos", False)
+
 

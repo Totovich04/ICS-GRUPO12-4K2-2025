@@ -1,5 +1,6 @@
 import pytest
 from ecoPark import inscribirse
+from actividad import Actividad
 
 # def test_acepta_terminos_y_condiciones():
 #    resultado = inscribirse(
@@ -29,19 +30,13 @@ def test_no_acepta_terminos_y_condiciones():
 #    assert resultado["mensaje"] == "Inscripción exitosa"
 
 def test_inscripcion_sin_cupos_disponibles():
-    resultado = inscribirse(
-        actividad="Tirolesa",
-        horario="11:00",  # horario no listado -> cupos 0
-        participantes=[{"nombre": "Toto", "edad": 10, "acepta_terminos": True}]
-    )
+    actividad = Actividad("Tirolesa", {"10:00": 5, "11:00": 0})
+    resultado = inscribirse(actividad, "11:00", [{"nombre": "Toto", "acepta_terminos": True}])
     assert resultado["ok"] is False
     assert resultado["mensaje"] == "No hay cupos disponibles"
 
 def test_no_indica_talle_en_vestimenta_requerida():
-    resultado = inscribirse(
-        actividad="Palestra",
-        horario="10:00",
-        participantes=[{"nombre": "Toto", "edad": 10, "acepta_terminos": True}]
-    )
+    actividad = Actividad("Palestra", {"10:00": 5, "11:00": 0})
+    resultado = inscribirse(actividad, "10:00", [{"nombre": "Toto", "acepta_terminos": True}])
     assert resultado["ok"] is False
     assert resultado["mensaje"] == "Debe indicar el talle de la vestimenta requerida"
