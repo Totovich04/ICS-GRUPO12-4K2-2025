@@ -12,11 +12,8 @@ from actividad import Actividad
 #    assert resultado["mensaje"] == "Inscripción exitosa"
 
 def test_no_acepta_terminos_y_condiciones():
-    resultado = inscribirse(
-        actividad="Tirolesa",
-        horario="10:00",
-        participantes=[{"nombre": "Toto", "edad": 10, "acepta_terminos": False}]
-    )
+    actividad = Actividad("Tirolesa", {"10:00": 5, "11:00": 0})
+    resultado = inscribirse(actividad, "11:00", [{"nombre": "Toto", "acepta_terminos": False}])
     assert resultado["ok"] is False
     assert resultado["mensaje"] == "Debe aceptar los términos y condiciones"
 
@@ -40,3 +37,8 @@ def test_no_indica_talle_en_vestimenta_requerida():
     resultado = inscribirse(actividad, "10:00", [{"nombre": "Toto", "acepta_terminos": True}])
     assert resultado["ok"] is False
     assert resultado["mensaje"] == "Debe indicar el talle de la vestimenta requerida"
+
+#TODO test horario no disponible (falla)
+#TODO test Probar inscribirse a una actividad sin ingresar talle de vestimenta porque la actividad no lo requiere (pasa)
+#TODO test que pasa
+#TODO(opcional) front
