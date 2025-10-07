@@ -1,5 +1,5 @@
 import pytest
-
+from ecoPark import inscribirse
 def test_acepta_terminos_y_condiciones():
     resultado = inscribirse(
         actividad = "Tirolesa", 
