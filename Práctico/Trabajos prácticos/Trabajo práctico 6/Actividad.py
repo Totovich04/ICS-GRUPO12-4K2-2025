@@ -20,4 +20,19 @@ class Actividad:
         if self.tiene_cupos(fecha, horario):
             self.disponibilidad[fecha][horario] -= 1
             return True
-        return False
+        return False 
+
+    def crear_dia(self, fecha):
+        """Crea un nuevo día con horarios predeterminados y 10 cupos por horario"""
+        horarios_predeterminados = {
+        "08:00": 10,
+        "10:00": 10,
+        "12:00": 10,
+        "14:00": 10,
+        "16:00": 10,
+        "18:00": 10
+        }
+        if fecha not in self.disponibilidad:
+            self.disponibilidad[fecha] = {}
+
+        self.disponibilidad[fecha] = horarios_predeterminados
