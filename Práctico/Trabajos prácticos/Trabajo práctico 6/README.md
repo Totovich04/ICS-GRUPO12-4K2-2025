@@ -19,5 +19,5 @@ streamlit run app.py
 Para correr los test, ejecuta el comando:
 
 ```bash
-pytest tests.py
+pytest test_inscripcion.py
 ```
