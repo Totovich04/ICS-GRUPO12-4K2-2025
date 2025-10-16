@@ -69,10 +69,3 @@ def test_inscripcion_exitosa():
     resultado = inscribirse(actividad, "2025-10-10", "10:00", [{"nombre": "Toto", "acepta_terminos": True, "talle_vestimenta": "M"}])
     assert resultado["ok"] is True
     assert resultado["mensaje"] == "Inscripción exitosa"
-
-
-#DONE test horario no disponible (falla)
-#DONE test Probar inscribirse a una actividad sin ingresar talle de vestimenta porque la actividad no lo requiere (pasa)
-#DONE test que pasa
-#TODO base de datos y su funcionalidad
-#TODO(opcional) front

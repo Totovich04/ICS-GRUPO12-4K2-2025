@@ -1,5 +1,3 @@
-from actividad import Actividad
-
 def inscribirse(actividad, fecha, horario, participantes):
     # Verificar términos y condiciones
     for participante in participantes:
