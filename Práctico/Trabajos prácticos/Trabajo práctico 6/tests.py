@@ -1,5 +1,5 @@
 import pytest
-from ecoPark import inscribirse
+from inscripcion  import inscribirse
 from actividad import Actividad
 
 def test_no_acepta_terminos_y_condiciones():

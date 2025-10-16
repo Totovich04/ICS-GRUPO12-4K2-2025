@@ -1,6 +1,6 @@
 import streamlit as st
 from actividad import Actividad
-from ecoPark import inscribirse
+from inscripcion import inscribirse
 from datetime import datetime, timedelta
 import time
 
