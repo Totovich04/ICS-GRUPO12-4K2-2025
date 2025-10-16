@@ -55,10 +55,9 @@ if actividad.requiere_vestimenta:
 else:
     talle = None
 
-# Botón de inscripción
+# Inscripción
 if st.button("Inscribirme"):
-    # Preparar datos del participante
-    # Validate required fields
+    # Validar campos requeridos
     if not nombre or not str(nombre).strip():
         st.error("Por favor ingrese un nombre válido")
         st.stop()
@@ -70,7 +69,7 @@ if st.button("Inscribirme"):
     if not acepta_tc:
         st.error("Debe aceptar los términos y condiciones")
         st.stop()
-        
+    
     participante = {
         "nombre": nombre,
         "edad": edad,
@@ -79,12 +78,10 @@ if st.button("Inscribirme"):
     if talle:
         participante["talle_vestimenta"] = talle
 
-    # Llama a la función de inscripción
     resultado = inscribirse(actividad, fecha_str, horario, [participante])
     
  # Muestra el resultado
     if resultado["ok"]:
-        # Muestra el mensaje de éxito en un modal
         success_modal = st.empty()
         with success_modal.container():
             st.success("✅ Inscripción exitosa!")
